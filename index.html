@@ -5,77 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SAMPS – Smart Air Response Assistant</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to right, #f5f7fa, #e0f2fe);
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      background: url('https://images.unsplash.com/photo-1581091215363-3dfb3bbf616b?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+      background-size: cover;
       color: #1f2937;
+      padding: 0;
     }
+
+    .overlay {
+      background: rgba(255, 255, 255, 0.85);
+      min-height: 100vh;
+      padding: 50px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
     header {
       text-align: center;
-      padding: 50px 20px;
-      background: #3b82f6;
-      color: white;
-    }
-    header h1 { font-size: 3em; margin: 0; }
-    header p { font-size: 1.2em; margin-top: 10px; }
-    
-    .container {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
+      margin-bottom: 50px;
     }
 
-    .box {
+    header h1 {
+      font-size: 3em;
+      color: #3b82f6;
+      animation: slideDown 1s ease forwards;
+    }
+
+    header p {
+      font-size: 1.3em;
+      margin-top: 10px;
+      color: #111827;
+      animation: slideUp 1s ease forwards;
+    }
+
+    .section {
       background: white;
+      border-radius: 15px;
       padding: 30px;
       margin-bottom: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
       opacity: 0;
-      animation: fadeIn 1s forwards;
+      transform: translateY(30px);
+      animation: fadeInUp 1s forwards;
     }
 
-    .box:nth-child(1) { animation-delay: 0.2s; }
-    .box:nth-child(2) { animation-delay: 0.4s; }
-    .box:nth-child(3) { animation-delay: 0.6s; }
+    .section:nth-child(2) { animation-delay: 0.3s; }
+    .section:nth-child(3) { animation-delay: 0.6s; }
+    .section:nth-child(4) { animation-delay: 0.9s; }
 
-    h2 { color: #3b82f6; margin-top: 0; }
+    h2 {
+      color: #3b82f6;
+      margin-bottom: 15px;
+    }
+
     ul { padding-left: 20px; }
 
     img {
       max-width: 100%;
       border-radius: 10px;
       margin-top: 15px;
+      transition: transform 0.5s ease;
     }
+
+    img:hover { transform: scale(1.05); }
 
     footer {
       text-align: center;
       padding: 20px;
       color: #475569;
       font-size: 0.9em;
+      margin-top: 50px;
     }
 
-    @keyframes fadeIn { to { opacity: 1; } }
+    a {
+      color: #3b82f6;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    a:hover { color: #f97316; }
+
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>SAMPS</h1>
-    <p>Your personal air guardian. Smart. Fast. Silent.</p>
-  </header>
+  <div class="overlay">
+    <header>
+      <h1>SAMPS</h1>
+      <p>Your personal air guardian. Smart. Fast. Silent.</p>
+    </header>
 
-  <div class="container">
-
-    <div class="box">
+    <div class="section">
       <h2>Why SAMPS?</h2>
-      <p>Pollution spikes without warning, but SAMPS reacts instantly. Monitor, clean, and breathe better — automatically.</p>
-      <img src="samps-device.png" alt="SAMPS Device">
+      <p>Pollution can spike at any moment. SAMPS detects poor air quality instantly and responds automatically, keeping your environment safe.</p>
+      <img src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&w=1200&q=80" alt="SAMPS Device">
     </div>
 
-    <div class="box">
+    <div class="section">
       <h2>Key Features</h2>
       <ul>
         <li>Real-time Air Quality Monitoring</li>
@@ -85,17 +132,16 @@
       </ul>
     </div>
 
-    <div class="box">
+    <div class="section">
       <h2>Get in Touch</h2>
-      <p>Email: <a href="mailto:your@email.com">your@email.com</a></p>
+      <p>Email: <a href="mailto:sampsversions@gmail.com">sampsversions@gmail.com</a></p>
       <p>Follow us on social media: <a href="#">@SAMPS_AIRA</a></p>
     </div>
 
+    <footer>
+      &copy; 2026 SAMPS – Smart Air Response Assistant
+    </footer>
   </div>
-
-  <footer>
-    &copy; 2026 SAMPS – Smart Air Response Assistant. All rights reserved.
-  </footer>
 
 </body>
 </html>
