@@ -4,20 +4,30 @@
 <meta charset="UTF-8">
 <title>SAMPS Polaris</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+:root{
+  --bg-dark:#020617;
+  --bg-mid:#052e2b;
+  --bg-light:#064e3b;
+  --accent:#22c55e;
+  --accent2:#14b8a6;
+  --text-main:#ecfeff;
+  --text-muted:#9ca3af;
+}
+
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins}
 html{scroll-behavior:smooth}
 
 body{
-  background:linear-gradient(120deg,#020617,#1e1b4b,#020617);
+  background:linear-gradient(120deg,var(--bg-dark),var(--bg-mid),var(--bg-light));
   background-size:400% 400%;
-  animation:bg 15s ease infinite;
-  color:#e5e7eb;
+  animation:bgShift 18s ease infinite;
+  color:var(--text-main);
 }
 
-@keyframes bg{
+@keyframes bgShift{
   0%{background-position:0% 50%}
   50%{background-position:100% 50%}
   100%{background-position:0% 50%}
@@ -25,147 +35,157 @@ body{
 
 nav{
   position:fixed;top:0;width:100%;
-  padding:15px 50px;
-  background:rgba(0,0,0,0.5);
-  backdrop-filter:blur(12px);
+  padding:16px 60px;
+  background:rgba(2,6,23,0.65);
+  backdrop-filter:blur(14px);
   display:flex;justify-content:space-between;align-items:center;
-  z-index:100
+  z-index:1000
 }
-nav h1{color:#22d3ee}
-nav a{color:#e5e7eb;margin-left:22px;text-decoration:none;font-weight:500}
-nav a:hover{color:#facc15}
+nav h1{
+  background:linear-gradient(90deg,#22c55e,#14b8a6,#38bdf8);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+nav a{color:var(--text-main);margin-left:24px;text-decoration:none;font-weight:500}
+nav a:hover{color:var(--accent)}
 
-section{padding:120px 70px}
+section{padding:130px 80px}
 
+/* HERO */
 .hero{
   min-height:100vh;
   display:grid;
   grid-template-columns:1.2fr 1fr;
-  gap:60px;
+  gap:70px;
   align-items:center;
 }
-
-.hero h2{font-size:3.2rem}
+.hero h2{font-size:3.5rem;line-height:1.1}
 .hero span{
-  background:linear-gradient(90deg,#22d3ee,#a78bfa,#f472b6);
+  background:linear-gradient(90deg,#22c55e,#14b8a6,#38bdf8);
   -webkit-background-clip:text;
   color:transparent;
 }
-
+.hero p{margin-top:14px;color:var(--text-muted);font-size:1.05rem}
 .hero button{
-  padding:14px 34px;
+  padding:15px 38px;
   border:none;
   border-radius:30px;
-  background:linear-gradient(90deg,#22d3ee,#a78bfa);
+  background:linear-gradient(90deg,#22c55e,#14b8a6);
   color:#020617;
   font-weight:600;
   cursor:pointer;
-  margin-top:22px;
+  margin-top:26px;
 }
 
 .device{
   background:rgba(255,255,255,0.06);
-  padding:35px;
-  border-radius:30px;
-  box-shadow:0 0 60px rgba(34,211,238,0.4);
-  animation:float 5s ease-in-out infinite;
+  padding:38px;
+  border-radius:34px;
+  box-shadow:0 0 70px rgba(34,197,94,0.45);
+  animation:float 6s ease-in-out infinite;
 }
-.device img{width:100%;border-radius:20px}
+.device img{width:100%;border-radius:22px}
 
 @keyframes float{
-  50%{transform:translateY(-18px)}
+  50%{transform:translateY(-22px)}
 }
 
-.features,.products{
+/* PRODUCTS */
+.products{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:30px;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:34px;
 }
 
 .card{
-  padding:30px;
-  border-radius:22px;
-  background:linear-gradient(135deg,#020617,#1e1b4b);
-  box-shadow:0 0 30px rgba(167,139,250,0.35);
-  transition:.4s;
+  padding:32px;
+  border-radius:26px;
+  background:linear-gradient(135deg,#020617,#052e2b);
+  box-shadow:0 0 40px rgba(20,184,166,0.35);
+  transition:.45s;
 }
-.card:hover{transform:translateY(-10px) scale(1.03)}
+.card:hover{transform:translateY(-12px) scale(1.04)}
+.card img{width:100%;border-radius:18px;margin-bottom:16px}
+.card h3{margin-bottom:8px}
+.card p{color:var(--text-muted);font-size:.95rem}
 
-.badge{
-  display:inline-block;
-  padding:6px 14px;
-  border-radius:20px;
-  background:#22d3ee;
-  color:#020617;
-  font-size:13px;
-  margin-top:10px
-}
-
-.login{
-  max-width:400px;
-  margin:auto;
-  background:rgba(255,255,255,0.07);
-  padding:40px;
-  border-radius:28px;
-  box-shadow:0 0 40px rgba(244,114,182,0.4)
-}
-
-.login input{
-  width:100%;
-  padding:14px;
-  margin:12px 0;
-  border-radius:16px;
-  border:none;
-}
-
-.login button{
-  width:100%;
-  padding:14px;
-  border:none;
-  border-radius:25px;
-  background:linear-gradient(90deg,#f472b6,#a78bfa);
-  cursor:pointer;
-  font-weight:600
-}
-
-.dashboard{display:none}
-
-.stats{
+/* FEATURES */
+.features{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:25px
+  gap:30px;
 }
 
+.feature{
+  padding:28px;
+  border-radius:24px;
+  background:linear-gradient(135deg,#020617,#064e3b);
+  box-shadow:0 0 30px rgba(34,197,94,.35);
+}
+
+/* LOGIN */
+.login{
+  max-width:420px;
+  margin:auto;
+  background:rgba(255,255,255,0.07);
+  padding:42px;
+  border-radius:30px;
+  box-shadow:0 0 45px rgba(34,197,94,0.4)
+}
+.login input{
+  width:100%;
+  padding:15px;
+  margin:14px 0;
+  border-radius:18px;
+  border:none;
+}
+.login button{
+  width:100%;
+  padding:15px;
+  border:none;
+  border-radius:25px;
+  background:linear-gradient(90deg,#22c55e,#14b8a6);
+  cursor:pointer;
+  font-weight:600;
+}
+
+/* DASHBOARD */
+.dashboard{display:none}
+.stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:30px
+}
 .stat{
-  padding:30px;
+  padding:34px;
   background:#020617;
-  border-radius:22px;
-  box-shadow:0 0 25px rgba(34,211,238,.35);
+  border-radius:26px;
+  box-shadow:0 0 35px rgba(34,197,94,.45);
   text-align:center
 }
-
 .toggle{
-  padding:10px 22px;
+  padding:12px 26px;
   border:none;
-  border-radius:20px;
-  background:#22d3ee;
+  border-radius:22px;
+  background:var(--accent);
   cursor:pointer;
   font-weight:600
 }
 
+/* FAQ */
 .faq details{
-  background:rgba(255,255,255,0.05);
-  padding:22px;
-  border-radius:18px;
-  margin-bottom:14px;
+  background:rgba(255,255,255,0.06);
+  padding:26px;
+  border-radius:22px;
+  margin-bottom:16px;
   cursor:pointer
 }
 
 footer{
   text-align:center;
-  padding:40px;
+  padding:50px;
   background:#020617;
-  color:#94a3b8
+  color:#9ca3af
 }
 </style>
 </head>
@@ -186,7 +206,7 @@ footer{
 <section id="home" class="hero">
   <div>
     <h2><span>SAMPS Polaris</span></h2>
-    <p>Smart Air Monitoring & Purification System with IoT control and AI-ready architecture.</p>
+    <p>Smart Air Monitoring & Purification System with intelligent response, IoT control, and scalable AI-ready architecture.</p>
     <button onclick="location.href='#products'">Explore Products</button>
   </div>
   <div class="device">
@@ -195,23 +215,24 @@ footer{
 </section>
 
 <section id="products">
-  <h2>Our Products</h2><br>
+  <h2>Our Product Line</h2><br>
   <div class="products">
-    <div class="card"><img src="p1.png" style="width:100%;border-radius:12px"><h3>Polaris Lite</h3><p>Basic AQI monitoring, compact design.</p></div>
-    <div class="card"><img src="p2.png" style="width:100%;border-radius:12px"><h3>Polaris</h3><p>Full purification with IoT control.</p></div>
-    <div class="card"><img src="p3.png" style="width:100%;border-radius:12px"><h3>Polaris Pro</h3><p>Dual fan, UV sterilization.</p></div>
-    <div class="card"><img src="p4.png" style="width:100%;border-radius:12px"><h3>Polaris AI</h3><p>Voice assistant & cloud intelligence.</p></div>
-    <div class="card"><img src="p5.png" style="width:100%;border-radius:12px"><h3>Polaris Max</h3><p>Industrial-grade air purification.</p></div>
+    <div class="card"><img src="p1.png"><h3>Polaris Lite</h3><p>Entry-level AQI monitoring, compact design, energy efficient.</p></div>
+    <div class="card"><img src="p2.png"><h3>Polaris</h3><p>Full purification system with IoT-based remote monitoring.</p></div>
+    <div class="card"><img src="p3.png"><h3>Polaris Pro</h3><p>Dual fan architecture with UV sterilization module.</p></div>
+    <div class="card"><img src="p4.png"><h3>Polaris AI</h3><p>Voice control, cloud intelligence, adaptive purification.</p></div>
+    <div class="card"><img src="p5.png"><h3>Polaris Max</h3><p>Industrial-grade system for labs and hospitals.</p></div>
   </div>
 </section>
 
 <section id="features">
   <h2>Core Features</h2><br>
   <div class="features">
-    <div class="card">Real-time AQI Monitoring</div>
-    <div class="card">HEPA + Carbon + UV</div>
-    <div class="card">Auto / Manual Modes</div>
-    <div class="card">Blynk IoT Control</div>
+    <div class="feature">Real-time AQI, temperature & humidity monitoring</div>
+    <div class="feature">HEPA + Activated Carbon + UV filtration</div>
+    <div class="feature">Automatic & manual operation modes</div>
+    <div class="feature">Blynk IoT integration for remote control</div>
+    <div class="feature">Fail-safe motor isolation & protected UV chamber</div>
   </div>
 </section>
 
@@ -227,7 +248,7 @@ footer{
 </section>
 
 <section id="dashboard" class="dashboard">
-  <h2>Dashboard</h2><br>
+  <h2>Live Dashboard</h2><br>
   <div class="stats">
     <div class="stat"><h3>AQI</h3><h1 id="aqi">45</h1></div>
     <div class="stat"><h3>Temperature</h3><h1>27°C</h1></div>
@@ -237,10 +258,10 @@ footer{
 
 <section id="faq" class="faq">
   <h2>FAQ</h2><br>
-  <details><summary>What is SAMPS?</summary><p>Smart Air Monitoring & Purification System designed for homes and labs.</p></details>
-  <details><summary>Does it work automatically?</summary><p>Yes, SAMPS adjusts purification based on AQI.</p></details>
-  <details><summary>Can I control it remotely?</summary><p>Yes, via Blynk IoT and future web dashboard.</p></details>
-  <details><summary>Is UV safe?</summary><p>UV is internally shielded and completely safe.</p></details>
+  <details><summary>What is SAMPS?</summary><p>SAMPS is a Smart Air Monitoring & Purification System designed for intelligent indoor air management.</p></details>
+  <details><summary>Does it work automatically?</summary><p>Yes. The system adapts fan speed and purification level based on AQI.</p></details>
+  <details><summary>Can I control it remotely?</summary><p>Yes, via Blynk IoT and future web-based dashboards.</p></details>
+  <details><summary>Is UV exposure safe?</summary><p>Yes. UV is fully enclosed and only operates when the system is sealed.</p></details>
 </section>
 
 <footer>
@@ -250,31 +271,26 @@ footer{
 
 <script>
 function login(){
-  const u = document.getElementById('email').value;
-  const p = document.getElementById('password').value;
-
+  const u=document.getElementById('email').value;
+  const p=document.getElementById('password').value;
   if(u==='admin' && p==='samps123'){
     document.getElementById('dashboard').style.display='block';
     document.getElementById('login').style.display='none';
-    document.getElementById('products').style.display='block';
-    document.getElementById('faq').style.display='block';
     location.hash='#dashboard';
   }else{
     document.getElementById('error').style.display='block';
   }
-}else{
-    document.getElementById('error').style.display='block'
-  }
 }
 
 function togglePassword(){
-  password.type = password.type==='password'?'text':'password'
+  const pass=document.getElementById('password');
+  pass.type = pass.type==='password' ? 'text' : 'password';
 }
 
-// Demo AQI animation
 setInterval(()=>{
-  document.getElementById('aqi').innerText = Math.floor(Math.random()*120)
-},3000)
+  const aqi=document.getElementById('aqi');
+  if(aqi) aqi.innerText=Math.floor(Math.random()*120);
+},3000);
 </script>
 
 </body>
