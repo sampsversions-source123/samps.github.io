@@ -1,53 +1,91 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>SAMPS – Smart Air Response Assistant</title>
+  <meta charset="UTF-8">
+  <title>SAMPS | Smart Air Response Assistant</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #eef2f7;
+      background: #f1f5f9;
+      margin: 0;
       padding: 20px;
+      color: #1f2937;
     }
-    .card {
-      background: white;
-      max-width: 800px;
+    .container {
+      max-width: 900px;
       margin: auto;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     }
-    h1 { color: #1f2937; }
-    h2 { margin-top: 20px; }
+    h1 { margin-bottom: 5px; }
+    h2 { margin-top: 30px; }
+    ul { line-height: 1.6; }
   </style>
 </head>
+
 <body>
+  <div class="container">
 
-  <div class="card">
     <h1>SAMPS</h1>
-    <h3>Smart Air Response Assistant</h3>
+    <p><strong>Smart Air Response Assistant</strong></p>
 
+    <hr>
+
+    <h2>Problem</h2>
     <p>
-      SAMPS is a smart air monitoring and purification system designed to
-      detect poor air quality and automatically activate purification.
+      Air pollution causes serious health problems, especially for asthma
+      patients, children, and the elderly. Most air purifiers require manual
+      operation and do not respond dynamically.
     </p>
+
+    <h2>Solution</h2>
+    <p>
+      SAMPS is an intelligent air monitoring and purification system that
+      continuously measures air quality and automatically activates
+      purification when pollution rises.
+    </p>
+
+    <h2>How It Works</h2>
+    <ul>
+      <li>Sensors monitor air quality in real time</li>
+      <li>ESP32 processes AQI data</li>
+      <li>Purifier activates automatically</li>
+      <li>Manual override for user control</li>
+    </ul>
 
     <h2>Key Features</h2>
     <ul>
       <li>Real-time AQI monitoring</li>
-      <li>Automatic purifier control</li>
-      <li>HEPA, Carbon & UV filtration</li>
-      <li>Manual override and alerts</li>
+      <li>Automatic & manual modes</li>
+      <li>Carbon + HEPA + UV filtration</li>
+      <li>Energy-efficient design</li>
     </ul>
 
-    <h2>Applications</h2>
+    <h2>Technology Used</h2>
+    <ul>
+      <li>ESP32 microcontroller</li>
+      <li>MQ-series gas sensors</li>
+      <li>DHT22 temperature & humidity sensor</li>
+      <li>Fan & UV control system</li>
+    </ul>
+
+    <h2>Impact</h2>
     <p>
-      Homes, schools, hospitals, and pollution-sensitive environments.
+      SAMPS improves indoor air safety by responding instantly to pollution,
+      reducing health risks and dependence on manual control.
+    </p>
+
+    <h2>Team</h2>
+    <p>
+      Student-built innovation project for competitions.
     </p>
 
     <h2>Contact</h2>
     <p>Email: your@email.com</p>
-  </div>
 
+  </div>
 </body>
 </html>
