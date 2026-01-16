@@ -1,315 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SAMPS</title>
+<meta charset="UTF-8">
+<title>SAMPS Polaris</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins}
+html{scroll-behavior:smooth}
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Poppins',sans-serif;
-    }
+body{
+  background:linear-gradient(120deg,#020617,#1e1b4b,#020617);
+  background-size:400% 400%;
+  animation:bg 15s ease infinite;
+  color:#e5e7eb;
+}
 
-    body{
-      min-height:100vh;
-      background: radial-gradient(circle at top left, #1b1f3b, #0f2027, #203a43, #2c5364);
-      color:#fff;
-      overflow-x:hidden;
-    }
+@keyframes bg{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
 
-    /* Animated background */
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      background:linear-gradient(120deg, rgba(255,0,150,0.15), rgba(0,200,255,0.15), rgba(0,255,150,0.15));
-      animation: bgmove 10s ease-in-out infinite alternate;
-      z-index:-1;
-    }
+nav{
+  position:fixed;top:0;width:100%;
+  padding:15px 50px;
+  background:rgba(0,0,0,0.5);
+  backdrop-filter:blur(12px);
+  display:flex;justify-content:space-between;align-items:center;
+  z-index:100
+}
+nav h1{color:#22d3ee}
+nav a{color:#e5e7eb;margin-left:22px;text-decoration:none;font-weight:500}
+nav a:hover{color:#facc15}
 
-    @keyframes bgmove{
-      from{filter:hue-rotate(0deg);}
-      to{filter:hue-rotate(120deg);}
-    }
+section{padding:120px 70px}
 
-    /* NAVBAR */
-    nav{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:20px 60px;
-      backdrop-filter: blur(12px);
-      background: rgba(255,255,255,0.08);
-      border-bottom:1px solid rgba(255,255,255,0.15);
-    }
+.hero{
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:60px;
+  align-items:center;
+}
 
-    nav h1{
-      font-size:28px;
-      font-weight:700;
-      background:linear-gradient(90deg,#00f2fe,#4facfe,#43e97b,#38f9d7);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
+.hero h2{font-size:3.2rem}
+.hero span{
+  background:linear-gradient(90deg,#22d3ee,#a78bfa,#f472b6);
+  -webkit-background-clip:text;
+  color:transparent;
+}
 
-    nav ul{
-      list-style:none;
-      display:flex;
-      gap:25px;
-    }
+.hero button{
+  padding:14px 34px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(90deg,#22d3ee,#a78bfa);
+  color:#020617;
+  font-weight:600;
+  cursor:pointer;
+  margin-top:22px;
+}
 
-    nav ul li{
-      cursor:pointer;
-      font-weight:500;
-      transition:0.3s;
-    }
+.device{
+  background:rgba(255,255,255,0.06);
+  padding:35px;
+  border-radius:30px;
+  box-shadow:0 0 60px rgba(34,211,238,0.4);
+  animation:float 5s ease-in-out infinite;
+}
+.device img{width:100%;border-radius:20px}
 
-    nav ul li:hover{
-      color:#43e97b;
-    }
+@keyframes float{
+  50%{transform:translateY(-18px)}
+}
 
-    /* HERO */
-    .hero{
-      display:grid;
-      grid-template-columns:1.2fr 1fr;
-      gap:40px;
-      padding:80px 60px;
-      align-items:center;
-    }
+.features,.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:30px;
+}
 
-    .hero-text h2{
-      font-size:48px;
-      line-height:1.2;
-      margin-bottom:20px;
-    }
+.card{
+  padding:30px;
+  border-radius:22px;
+  background:linear-gradient(135deg,#020617,#1e1b4b);
+  box-shadow:0 0 30px rgba(167,139,250,0.35);
+  transition:.4s;
+}
+.card:hover{transform:translateY(-10px) scale(1.03)}
 
-    .hero-text span{
-      background:linear-gradient(90deg,#ff512f,#dd2476,#24c6dc,#514a9d);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
+.badge{
+  display:inline-block;
+  padding:6px 14px;
+  border-radius:20px;
+  background:#22d3ee;
+  color:#020617;
+  font-size:13px;
+  margin-top:10px
+}
 
-    .hero-text p{
-      font-size:18px;
-      opacity:0.9;
-      margin-bottom:30px;
-    }
+.login{
+  max-width:400px;
+  margin:auto;
+  background:rgba(255,255,255,0.07);
+  padding:40px;
+  border-radius:28px;
+  box-shadow:0 0 40px rgba(244,114,182,0.4)
+}
 
-    .price{
-      font-size:22px;
-      font-weight:600;
-      margin-bottom:30px;
-      color:#43e97b;
-    }
+.login input{
+  width:100%;
+  padding:14px;
+  margin:12px 0;
+  border-radius:16px;
+  border:none;
+}
 
-    .btn{
-      padding:14px 28px;
-      border:none;
-      border-radius:30px;
-      background:linear-gradient(90deg,#43e97b,#38f9d7);
-      color:#000;
-      font-weight:600;
-      cursor:pointer;
-      transition:0.3s;
-    }
+.login button{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:25px;
+  background:linear-gradient(90deg,#f472b6,#a78bfa);
+  cursor:pointer;
+  font-weight:600
+}
 
-    .btn:hover{
-      transform:translateY(-3px);
-      box-shadow:0 15px 30px rgba(67,233,123,0.4);
-    }
+.dashboard{display:none}
 
-    /* PRODUCT IMAGE CARD */
-    .product-card{
-      background:rgba(255,255,255,0.1);
-      border-radius:25px;
-      padding:25px;
-      backdrop-filter: blur(14px);
-      box-shadow:0 25px 60px rgba(0,0,0,0.4);
-      text-align:center;
-    }
+.stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px
+}
 
-    .product-card img{
-      width:100%;
-      max-height:320px;
-      object-fit:contain;
-      border-radius:15px;
-      margin-bottom:20px;
-    }
+.stat{
+  padding:30px;
+  background:#020617;
+  border-radius:22px;
+  box-shadow:0 0 25px rgba(34,211,238,.35);
+  text-align:center
+}
 
-    /* FEATURES */
-    .features{
-      padding:80px 60px;
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:30px;
-    }
+.toggle{
+  padding:10px 22px;
+  border:none;
+  border-radius:20px;
+  background:#22d3ee;
+  cursor:pointer;
+  font-weight:600
+}
 
-    .feature{
-      background:rgba(255,255,255,0.1);
-      border-radius:20px;
-      padding:30px;
-      backdrop-filter: blur(12px);
-      transition:0.3s;
-    }
+.faq details{
+  background:rgba(255,255,255,0.05);
+  padding:22px;
+  border-radius:18px;
+  margin-bottom:14px;
+  cursor:pointer
+}
 
-    .feature:hover{
-      transform:translateY(-8px) scale(1.02);
-      box-shadow:0 20px 50px rgba(0,0,0,0.5);
-    }
-
-    .feature h3{
-      margin-bottom:12px;
-      color:#38f9d7;
-    }
-
-    /* LOGIN MODAL */
-    .modal{
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,0.7);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      z-index:10;
-    }
-
-    .modal.active{display:flex;}
-
-    .login-box{
-      width:360px;
-      background:rgba(255,255,255,0.12);
-      backdrop-filter: blur(15px);
-      padding:35px;
-      border-radius:25px;
-      box-shadow:0 30px 80px rgba(0,0,0,0.6);
-    }
-
-    .login-box h2{
-      text-align:center;
-      margin-bottom:25px;
-      background:linear-gradient(90deg,#43e97b,#38f9d7);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
-
-    .login-box input{
-      width:100%;
-      padding:12px 15px;
-      margin-bottom:15px;
-      border:none;
-      border-radius:12px;
-      outline:none;
-    }
-
-    .show-pass{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      font-size:14px;
-      margin-bottom:15px;
-    }
-
-    .error{
-      color:#ff6b6b;
-      font-size:14px;
-      text-align:center;
-      margin-top:10px;
-    }
-
-    footer{
-      text-align:center;
-      padding:30px;
-      opacity:0.6;
-      font-size:14px;
-    }
-
-    @media(max-width:900px){
-      .hero{grid-template-columns:1fr;}
-    }
-  </style>
+footer{
+  text-align:center;
+  padding:40px;
+  background:#020617;
+  color:#94a3b8
+}
+</style>
 </head>
+
 <body>
 
-  <nav>
-    <h1>SAMPS Polaris</h1>
-    <ul>
-      <li>Home</li>
-      <li>Features</li>
-      <li onclick="openLogin()">Login</li>
-    </ul>
-  </nav>
-
-  <section class="hero">
-    <div class="hero-text">
-      <h2>Next-Gen <span>Smart Air Monitoring</span> System</h2>
-      <p>SAMPS Polaris is a futuristic, AI-ready air quality monitoring and purification system designed for modern smart homes.</p>
-      <div class="price">Price: ₹6000</div>
-      <button class="btn" onclick="openLogin()">Access Dashboard</button>
-    </div>
-
-    <div class="product-card">
-      <img src="samps-polaris.png" alt="SAMPS Polaris Device">
-      <p>High-precision sensors • Intelligent control • Modular expansion</p>
-    </div>
-  </section>
-
-  <section class="features">
-    <div class="feature"><h3>Real-time AQI</h3><p>Continuous monitoring with instant visual feedback.</p></div>
-    <div class="feature"><h3>Auto & Manual Modes</h3><p>Seamlessly switch between automation and user control.</p></div>
-    <div class="feature"><h3>Expandable AI Core</h3><p>Future-ready architecture for AI and voice assistant integration.</p></div>
-    <div class="feature"><h3>Energy Efficient</h3><p>Optimized power usage for long-term operation.</p></div>
-  </section>
-
-  <!-- LOGIN MODAL -->
-  <div class="modal" id="loginModal">
-    <div class="login-box">
-      <h2>Login</h2>
-      <input type="text" id="username" placeholder="Username">
-      <input type="password" id="password" placeholder="Password">
-      <div class="show-pass">
-        <input type="checkbox" onclick="togglePassword()"> Show password
-      </div>
-      <button class="btn" style="width:100%" onclick="login()">Login</button>
-      <div class="error" id="error"></div>
-    </div>
+<nav>
+  <h1>SAMPS</h1>
+  <div>
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#features">Features</a>
+    <a href="#faq">FAQ</a>
+    <a href="#login">Login</a>
   </div>
+</nav>
 
-  <footer>
-    © 2026 SAMPS Polaris • Designed for a cleaner future
-  </footer>
+<section id="home" class="hero">
+  <div>
+    <h2><span>SAMPS Polaris</span></h2>
+    <p>Smart Air Monitoring & Purification System with IoT control and AI-ready architecture.</p>
+    <button onclick="location.href='#products'">Explore Products</button>
+  </div>
+  <div class="device">
+    <img src="samps-polaris.png" alt="SAMPS Polaris">
+  </div>
+</section>
+
+<section id="products">
+  <h2>Our Products</h2><br>
+  <div class="products">
+    <div class="card"><img src="p1.png" style="width:100%;border-radius:12px"><h3>Polaris Lite</h3><p>Basic AQI monitoring, compact design.</p></div>
+    <div class="card"><img src="p2.png" style="width:100%;border-radius:12px"><h3>Polaris</h3><p>Full purification with IoT control.</p></div>
+    <div class="card"><img src="p3.png" style="width:100%;border-radius:12px"><h3>Polaris Pro</h3><p>Dual fan, UV sterilization.</p></div>
+    <div class="card"><img src="p4.png" style="width:100%;border-radius:12px"><h3>Polaris AI</h3><p>Voice assistant & cloud intelligence.</p></div>
+    <div class="card"><img src="p5.png" style="width:100%;border-radius:12px"><h3>Polaris Max</h3><p>Industrial-grade air purification.</p></div>
+  </div>
+</section>
+
+<section id="features">
+  <h2>Core Features</h2><br>
+  <div class="features">
+    <div class="card">Real-time AQI Monitoring</div>
+    <div class="card">HEPA + Carbon + UV</div>
+    <div class="card">Auto / Manual Modes</div>
+    <div class="card">Blynk IoT Control</div>
+  </div>
+</section>
+
+<section id="login">
+  <h2>Login</h2><br>
+  <div class="login">
+    <input id="email" type="text" placeholder="Username">
+    <input id="password" type="password" placeholder="Password">
+    <label><input type="checkbox" onclick="togglePassword()"> Show password</label>
+    <button onclick="login()">Login</button>
+    <p id="error" style="display:none;color:#f87171;text-align:center">Invalid credentials</p>
+  </div>
+</section>
+
+<section id="dashboard" class="dashboard">
+  <h2>Dashboard</h2><br>
+  <div class="stats">
+    <div class="stat"><h3>AQI</h3><h1 id="aqi">45</h1></div>
+    <div class="stat"><h3>Temperature</h3><h1>27°C</h1></div>
+    <div class="stat"><h3>Purifier</h3><button class="toggle">Toggle</button></div>
+  </div>
+</section>
+
+<section id="faq" class="faq">
+  <h2>FAQ</h2><br>
+  <details><summary>What is SAMPS?</summary><p>Smart Air Monitoring & Purification System designed for homes and labs.</p></details>
+  <details><summary>Does it work automatically?</summary><p>Yes, SAMPS adjusts purification based on AQI.</p></details>
+  <details><summary>Can I control it remotely?</summary><p>Yes, via Blynk IoT and future web dashboard.</p></details>
+  <details><summary>Is UV safe?</summary><p>UV is internally shielded and completely safe.</p></details>
+</section>
+
+<footer>
+  <p>📧 sampsversions@gmail.com</p>
+  <p>© SAMPS Polaris</p>
+</footer>
 
 <script>
-  // ===== CREDENTIALS =====
-  // Username: admin
-  // Password: samps123
+function login(){
+  const u = document.getElementById('email').value;
+  const p = document.getElementById('password').value;
 
-  function openLogin(){
-    document.getElementById('loginModal').classList.add('active');
+  if(u==='admin' && p==='samps123'){
+    document.getElementById('dashboard').style.display='block';
+    document.getElementById('login').style.display='none';
+    document.getElementById('products').style.display='block';
+    document.getElementById('faq').style.display='block';
+    location.hash='#dashboard';
+  }else{
+    document.getElementById('error').style.display='block';
   }
-
-  function togglePassword(){
-    const pass=document.getElementById('password');
-    pass.type = pass.type === 'password' ? 'text' : 'password';
+}else{
+    document.getElementById('error').style.display='block'
   }
+}
 
-  function login(){
-    const user=document.getElementById('username').value;
-    const pass=document.getElementById('password').value;
-    const err=document.getElementById('error');
+function togglePassword(){
+  password.type = password.type==='password'?'text':'password'
+}
 
-    if(user === 'admin' && pass === 'samps123'){
-      alert('Login successful! Redirecting to dashboard...');
-      err.innerText='';
-      document.getElementById('loginModal').classList.remove('active');
-    }else{
-      err.innerText='Invalid username or password';
-    }
-  }
+// Demo AQI animation
+setInterval(()=>{
+  document.getElementById('aqi').innerText = Math.floor(Math.random()*120)
+},3000)
 </script>
 
 </body>
