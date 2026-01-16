@@ -2,90 +2,100 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>SAMPS | Smart Air Response Assistant</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAMPS – Smart Air Response Assistant</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f1f5f9;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      padding: 20px;
+      padding: 0;
+      background: linear-gradient(to right, #f5f7fa, #e0f2fe);
       color: #1f2937;
     }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      background: #ffffff;
-      padding: 30px;
-      border-radius: 14px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    header {
+      text-align: center;
+      padding: 50px 20px;
+      background: #3b82f6;
+      color: white;
     }
-    h1 { margin-bottom: 5px; }
-    h2 { margin-top: 30px; }
-    ul { line-height: 1.6; }
+    header h1 { font-size: 3em; margin: 0; }
+    header p { font-size: 1.2em; margin-top: 10px; }
+    
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .box {
+      background: white;
+      padding: 30px;
+      margin-bottom: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    .box:nth-child(1) { animation-delay: 0.2s; }
+    .box:nth-child(2) { animation-delay: 0.4s; }
+    .box:nth-child(3) { animation-delay: 0.6s; }
+
+    h2 { color: #3b82f6; margin-top: 0; }
+    ul { padding-left: 20px; }
+
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-top: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #475569;
+      font-size: 0.9em;
+    }
+
+    @keyframes fadeIn { to { opacity: 1; } }
   </style>
 </head>
-
 <body>
+
+  <header>
+    <h1>SAMPS</h1>
+    <p>Your personal air guardian. Smart. Fast. Silent.</p>
+  </header>
+
   <div class="container">
 
-    <h1>SAMPS</h1>
-    <p><strong>Smart Air Response Assistant</strong></p>
+    <div class="box">
+      <h2>Why SAMPS?</h2>
+      <p>Pollution spikes without warning, but SAMPS reacts instantly. Monitor, clean, and breathe better — automatically.</p>
+      <img src="samps-device.png" alt="SAMPS Device">
+    </div>
 
-    <hr>
+    <div class="box">
+      <h2>Key Features</h2>
+      <ul>
+        <li>Real-time Air Quality Monitoring</li>
+        <li>Automatic Purification (HEPA + Carbon + UV)</li>
+        <li>Manual Override for Custom Control</li>
+        <li>Smart Alerts & Safety Notifications</li>
+      </ul>
+    </div>
 
-    <h2>Problem</h2>
-    <p>
-      Air pollution causes serious health problems, especially for asthma
-      patients, children, and the elderly. Most air purifiers require manual
-      operation and do not respond dynamically.
-    </p>
-
-    <h2>Solution</h2>
-    <p>
-      SAMPS is an intelligent air monitoring and purification system that
-      continuously measures air quality and automatically activates
-      purification when pollution rises.
-    </p>
-
-    <h2>How It Works</h2>
-    <ul>
-      <li>Sensors monitor air quality in real time</li>
-      <li>ESP32 processes AQI data</li>
-      <li>Purifier activates automatically</li>
-      <li>Manual override for user control</li>
-    </ul>
-
-    <h2>Key Features</h2>
-    <ul>
-      <li>Real-time AQI monitoring</li>
-      <li>Automatic & manual modes</li>
-      <li>Carbon + HEPA + UV filtration</li>
-      <li>Energy-efficient design</li>
-    </ul>
-
-    <h2>Technology Used</h2>
-    <ul>
-      <li>ESP32 microcontroller</li>
-      <li>MQ-series gas sensors</li>
-      <li>DHT22 temperature & humidity sensor</li>
-      <li>Fan & UV control system</li>
-    </ul>
-
-    <h2>Impact</h2>
-    <p>
-      SAMPS improves indoor air safety by responding instantly to pollution,
-      reducing health risks and dependence on manual control.
-    </p>
-
-    <h2>Team</h2>
-    <p>
-      Student-built innovation project for competitions.
-    </p>
-
-    <h2>Contact</h2>
-    <p>Email: your@email.com</p>
+    <div class="box">
+      <h2>Get in Touch</h2>
+      <p>Email: <a href="mailto:your@email.com">your@email.com</a></p>
+      <p>Follow us on social media: <a href="#">@SAMPS_AIRA</a></p>
+    </div>
 
   </div>
+
+  <footer>
+    &copy; 2026 SAMPS – Smart Air Response Assistant. All rights reserved.
+  </footer>
+
 </body>
 </html>
