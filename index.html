@@ -145,6 +145,7 @@ footer{
 <nav>
   <h1>SAMPS</h1>
   <div>
+    <a href="#home">Home</a>
     <a href="#features">Features</a>
     <a href="#login">Login</a>
     <a href="#dashboard">Dashboard</a>
@@ -153,9 +154,9 @@ footer{
 
 <section class="hero">
   <div>
-    <h2>SAMPS <span>Polaris</span></h2>
+    <h2>SAMPS</h2>
     <p>Smart air monitoring & purification with real-time response.</p>
-    <p><strong>Price:</strong> ₹6000</p>
+    <p><strong>Price:</strong> ₹1500</p>
     <button onclick="scrollToLogin()">Get Started</button>
   </div>
 
@@ -187,16 +188,16 @@ footer{
 <section id="dashboard" class="dashboard">
   <h2>Control Dashboard</h2><br>
   <div class="cards">
-    <div class="card"><h3>AQI</h3><h1>87</h1></div>
-    <div class="card"><h3>Temp</h3><h1>29°C</h1></div>
-    <div class="card"><h3>Fans</h3><button class="toggle">Toggle</button></div>
-    <div class="card"><h3>UV</h3><button class="toggle">Toggle</button></div>
+    <div class="card"><h3>AQI</h3><h1>21</h1></div>
+    <div class="card"><h3>Temp</h3><h1>28.5°C</h1></div>
+    <div class="card"><h3>Purifiers</h3><button class="toggle">Activate</button></div>
   </div>
 </section>
 
 <footer>
   <p>📧 samps.polaris@gmail.com</p>
   <p>© SAMPS Polaris</p>
+  <p>🅾 SAMPS_OFFICIAL</p>
 </footer>
 
 <script>
@@ -205,7 +206,7 @@ function login(){
   const pass=document.getElementById("password").value;
 
   // DEMO CREDENTIALS
-  if(email==="admin@samps.com" && pass==="samps123"){
+  if(email==="samps.official@gmail.com" && pass==="samps123"){
     document.querySelector(".dashboard").style.display="block";
     document.getElementById("login").style.display="none";
     document.getElementById("error").style.display="none";
