@@ -2,208 +2,216 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>SAMPS Polaris | Smart Air Purification</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SAMPS – Smart Air Response Assistant</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --cyan:#22d3ee;
-  --purple:#a855f7;
-  --orange:#fb923c;
-  --green:#4ade80;
-  --dark:#0f172a;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
 }
 
-*{margin:0;padding:0;box-sizing:border-box;}
-
 body{
-  font-family:'Poppins',sans-serif;
-  background:
-    radial-gradient(circle at top left, #22d3ee33, transparent 40%),
-    radial-gradient(circle at bottom right, #a855f733, transparent 40%),
-    linear-gradient(135deg,#020617,#0f172a);
+  background: radial-gradient(circle at top left, #1e1b4b, #020617);
   color:#e5e7eb;
   overflow-x:hidden;
 }
 
-header{
-  position:fixed;
-  width:100%;
-  top:0;
-  z-index:100;
-  backdrop-filter: blur(12px);
-  background:rgba(15,23,42,0.7);
-}
-
+/* NAVBAR */
 nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:15px 60px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:15px 40px;
+  background:rgba(0,0,0,0.45);
+  backdrop-filter:blur(10px);
+  z-index:100;
 }
 
-nav a{
-  color:#e5e7eb;
+nav h1{
+  color:#22d3ee;
+  font-weight:700;
+}
+
+nav ul{
+  display:flex;
+  gap:25px;
+  list-style:none;
+}
+
+nav ul li a{
   text-decoration:none;
-  margin-left:25px;
-  font-weight:500;
+  color:#e5e7eb;
   transition:0.3s;
 }
 
-nav a:hover{color:var(--cyan);}
-
-.logo{
-  font-weight:700;
-  font-size:1.4rem;
-  background:linear-gradient(90deg,var(--cyan),var(--purple));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+nav ul li a:hover{
+  color:#facc15;
 }
 
-section{
-  min-height:100vh;
-  padding:120px 40px 60px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
+/* HERO */
 .hero{
+  min-height:100vh;
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:50px;
-  max-width:1200px;
+  grid-template-columns:1.2fr 1fr;
+  align-items:center;
+  padding:120px 80px;
+  gap:60px;
 }
 
-.hero h1{
+.hero h2{
   font-size:3.2rem;
-  line-height:1.1;
+  line-height:1.2;
 }
 
-.gradient-text{
-  background:linear-gradient(90deg,var(--cyan),var(--purple),var(--orange));
+.hero h2 span{
+  background:linear-gradient(90deg,#22d3ee,#a78bfa,#f472b6);
   -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+  color:transparent;
 }
 
 .hero p{
-  margin-top:20px;
-  font-size:1.1rem;
+  margin:20px 0;
+  max-width:500px;
   color:#cbd5f5;
 }
 
-.price{
-  margin-top:25px;
-  font-size:1.4rem;
-  font-weight:700;
-  color:var(--green);
-}
-
-.cta{
-  margin-top:35px;
-  display:flex;
-  gap:20px;
-}
-
-.btn{
-  padding:14px 36px;
-  border-radius:999px;
+.hero button{
+  padding:14px 28px;
   border:none;
-  cursor:pointer;
+  border-radius:30px;
+  background:linear-gradient(90deg,#22d3ee,#a78bfa);
+  color:#020617;
   font-size:1rem;
-  font-weight:600;
+  cursor:pointer;
   transition:0.3s;
 }
 
-.btn-primary{
-  background:linear-gradient(90deg,var(--cyan),var(--purple));
-  color:#020617;
+.hero button:hover{
+  transform:scale(1.08);
 }
 
-.btn-primary:hover{
-  transform:translateY(-3px);
-  box-shadow:0 0 30px #22d3ee66;
-}
-
-.btn-outline{
-  background:transparent;
-  color:#e5e7eb;
-  border:2px solid #334155;
-}
-
-.btn-outline:hover{
-  border-color:var(--orange);
-  color:var(--orange);
-}
-
+/* PRODUCT IMAGE */
 .device-card{
-  background:rgba(255,255,255,0.06);
+  background:rgba(255,255,255,0.05);
   border-radius:30px;
-  padding:40px;
-  backdrop-filter: blur(20px);
-  box-shadow:0 0 60px rgba(0,0,0,0.4);
-  text-align:center;
-  animation:float 6s ease-in-out infinite;
+  padding:30px;
+  box-shadow:0 0 60px rgba(34,211,238,0.2);
+  animation:float 4s ease-in-out infinite;
 }
 
 .device-card img{
-  max-width:100%;
-  border-radius:20px;
+  width:100%;
 }
 
 @keyframes float{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-15px);}
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(-15px); }
+}
+
+/* FEATURES */
+section{
+  padding:100px 80px;
 }
 
 .features{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
   gap:30px;
-  max-width:1100px;
 }
 
 .feature{
-  background:rgba(255,255,255,0.07);
+  background:linear-gradient(145deg,#020617,#111827);
   padding:30px;
   border-radius:20px;
-  backdrop-filter:blur(15px);
   transition:0.3s;
+  border:1px solid rgba(255,255,255,0.05);
 }
 
 .feature:hover{
-  transform:translateY(-8px);
-  box-shadow:0 0 30px rgba(168,85,247,0.3);
+  transform:translateY(-10px);
+  box-shadow:0 0 25px rgba(167,139,250,0.4);
 }
 
 .feature h3{
+  color:#facc15;
   margin-bottom:10px;
-  color:var(--cyan);
 }
 
-.control{
-  max-width:500px;
-  width:100%;
-  background:rgba(255,255,255,0.08);
+/* DASHBOARD */
+.dashboard{
+  background:rgba(255,255,255,0.04);
+  border-radius:30px;
+  padding:40px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:25px;
+}
+
+.card{
+  padding:25px;
+  border-radius:20px;
+  background:linear-gradient(135deg,#1e1b4b,#020617);
+  text-align:center;
+  box-shadow:0 0 20px rgba(34,211,238,0.25);
+}
+
+.card h4{
+  color:#22d3ee;
+}
+
+.toggle{
+  margin-top:15px;
+  padding:10px 20px;
+  border:none;
+  border-radius:20px;
+  background:#22d3ee;
+  cursor:pointer;
+}
+
+/* LOGIN */
+.login{
+  max-width:400px;
+  margin:auto;
+  background:rgba(255,255,255,0.05);
   padding:40px;
   border-radius:25px;
-  backdrop-filter:blur(20px);
 }
 
-input{
+.login input{
   width:100%;
   padding:12px;
-  margin-bottom:15px;
-  border-radius:12px;
+  margin:12px 0;
+  border-radius:15px;
   border:none;
-  outline:none;
 }
 
+.login button{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:20px;
+  background:linear-gradient(90deg,#f472b6,#a78bfa);
+  color:#020617;
+  cursor:pointer;
+}
+
+/* FOOTER */
 footer{
+  padding:40px;
   text-align:center;
-  padding:30px;
+  background:#020617;
   color:#94a3b8;
 }
 </style>
@@ -211,80 +219,95 @@ footer{
 
 <body>
 
-<header>
-  <nav>
-    <div class="logo">SAMPS</div>
-    <div>
-      <a href="#home">Home</a>
-      <a href="#features">Features</a>
-      <a href="#control">Control</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
-</header>
+<nav>
+  <h1>SAMPS</h1>
+  <ul>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#dashboard">Dashboard</a></li>
+    <li><a href="#login">Login</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-<section id="home">
-  <div class="hero">
-    <div>
-      <h1><span class="gradient-text">Smart Air</span><br>Redefined</h1>
-      <p>
-        SAMPS is an intelligent air monitoring and purification system
-        designed for real-time response to pollution spikes.
-        this very machine can make your home fully automated.
-      </p>
-      <div class="price">Starting at ₹1500</div>
-
-      <div class="cta">
-        <button class="btn btn-primary">Request Demo</button>
-        <button class="btn btn-outline">Explore Features</button>
-      </div>
-    </div>
-
-    <div class="device-card">
-      <img src="samps-polaris.png" alt="SAMPS Polaris Device">
-    </div>
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <h2>The Future of Air is <span>SAMPS Polaris</span></h2>
+    <p>
+      Intelligent air purification that monitors, analyzes, and responds instantly.
+      Designed for real homes, real pollution, real protection.
+    </p>
+    <p><strong>Price:</strong> ₹6000</p>
+    <button>Explore Dashboard</button>
   </div>
-</section>
 
+  <div class="device-card">
+    <img src="samps-polaris.png" alt="SAMPS Polaris">
+  </div>
+</div>
+
+<!-- FEATURES -->
 <section id="features">
+  <h2>Why SAMPS Polaris?</h2><br>
   <div class="features">
     <div class="feature">
-      <h3>Real-Time AQI</h3>
-      <p>Continuous air quality analysis with instant response.</p>
+      <h3>Smart AQI Detection</h3>
+      <p>Real-time gas, temperature & humidity tracking.</p>
     </div>
     <div class="feature">
-      <h3>Triple Filtration</h3>
-      <p>Activated Carbon + HEPA + UV protection.</p>
+      <h3>Triple-Layer Filtration</h3>
+      <p>Carbon + HEPA + UV for maximum protection.</p>
     </div>
     <div class="feature">
-      <h3>Auto & Manual Modes</h3>
-      <p>Smart automation with full manual override.</p>
+      <h3>Auto & Manual Control</h3>
+      <p>Switch between autonomous AI and manual mode.</p>
     </div>
     <div class="feature">
-      <h3>Remote Control</h3>
-      <p>Monitor and control SAMPS via IoT dashboard.</p>
+      <h3>IoT Enabled</h3>
+      <p>Control SAMPS remotely via web & mobile.</p>
     </div>
   </div>
 </section>
 
-<section id="control">
-  <div class="control">
-    <h2 class="gradient-text">Login to your SAMPS account</h2>
-    <input type="text" placeholder="Username">
+<!-- DASHBOARD -->
+<section id="dashboard">
+  <h2>Live Control Dashboard</h2><br>
+  <div class="dashboard">
+    <div class="cards">
+      <div class="card">
+        <h4>AQI</h4>
+        <h1>87</h1>
+      </div>
+      <div class="card">
+        <h4>Temperature</h4>
+        <h1>29°C</h1>
+      </div>
+      <div class="card">
+        <h4>Fans</h4>
+        <button class="toggle">Toggle</button>
+      </div>
+      <div class="card">
+        <h4>UV Sterilizer</h4>
+        <button class="toggle">Toggle</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGIN -->
+<section id="login">
+  <h2>Login to Control SAMPS</h2><br>
+  <div class="login">
+    <input type="email" placeholder="Email">
     <input type="password" placeholder="Password">
-    <button class="btn btn-primary" style="width:100%;">Login</button>
+    <button>Login</button>
   </div>
 </section>
 
-<section id="contact">
-  <div class="control">
-    <h2 class="gradient-text">Contact</h2>
-    <p>Email: <b>samps.polaris@gmail.com</b></p>
-  </div>
-</section>
-
-<footer>
-  © 2026 SAMPS Polaris · Smart Air Response Assistant
+<!-- FOOTER -->
+<footer id="contact">
+  <p>📧 sampsversions@gmail.com</p>
+  <p>© 2026 SAMPS Polaris</p>
 </footer>
 
 </body>
